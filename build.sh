@@ -1,4 +1,4 @@
-#!/usr/bin/apivenv bash
+#!/usr/bin/env bash
 #exit on error
 
 set -o errerexit
