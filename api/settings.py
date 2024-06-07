@@ -27,14 +27,17 @@ SECRET_KEY=os.environ.get('SECRET_KEY',default='')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG='RENDER' not in os.environ
+import os
 
-ALLOWED_HOSTS = []
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-RENDER_EXTERNAL_HOST=os.environ.get('RENDER_EXTERNAL_HOST')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
+
+RENDER_EXTERNAL_HOST = os.getenv('RENDER_EXTERNAL_HOST')
 
 if RENDER_EXTERNAL_HOST:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOST)
+
     
 # Application definition
 
